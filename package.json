@@ -1,0 +1,65 @@
+{
+    "name": "@wpazderski/node-package-tools",
+    "version": "1.0.0",
+    "description": "Common Node.js package tools",
+    "keywords": [
+        "node",
+        "package",
+        "tools"
+    ],
+    "author": "Witold Pazderski",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/wpazderski/node-package-tools.git"
+    },
+    "homepage": "https://github.com/wpazderski/node-package-tools",
+    "bugs": {
+        "url": "https://github.com/wpazderski/node-package-tools/issues"
+    },
+    "type": "module",
+    "exports": {
+        ".": "./dist/exportsIndex.js"
+    },
+    "files": [
+        "dist"
+    ],
+    "bin": {
+        "check-licenses": "./dist/checkLicenses/checkLicenses.js",
+        "check-outdated-packages": "./dist/checkOutdatedPackages/checkOutdatedPackages.js"
+    },
+    "scripts": {
+        "build": "rimraf ./dist/ && rimraf -g ./node_modules/.tmp/*.tsbuildinfo && tsc -b",
+        "lint-check": "eslint ./ --flag unstable_native_nodejs_ts_config --flag unstable_config_lookup_from_file --max-warnings 0",
+        "lint-fix": "eslint ./ --flag unstable_native_nodejs_ts_config --flag unstable_config_lookup_from_file --max-warnings 0 --fix",
+        "prettier-check": "prettier ./ --check",
+        "prettier-fix": "prettier ./ --write",
+        "tsc-check": "tsc -b --noEmit",
+        "check-licenses": "node ./src/checkLicenses/checkLicenses.ts",
+        "check-outdated-packages": "node ./src/checkOutdatedPackages/checkOutdatedPackages.ts",
+        "check-all": "run-s lint-check prettier-check tsc-check check-licenses check-outdated-packages",
+        "pre-commit-checks": "run-s check-all"
+    },
+    "dependencies": {
+        "semver": "^7.7.2"
+    },
+    "devDependencies": {
+        "@types/node": "^24.2.1",
+        "@types/semver": "^7.7.0",
+        "@wpazderski/eslint-config": "^1.0.4",
+        "@wpazderski/prettier-config": "^1.0.2",
+        "@wpazderski/typescript-config": "^1.0.3",
+        "eslint": "^9.33.0",
+        "npm-run-all": "^4.1.5",
+        "prettier": "^3.6.2",
+        "rimraf": "^6.0.1",
+        "typescript": "^5.9.2"
+    },
+    "packageManager": "pnpm@10.11.0",
+    "engines": {
+        "node": ">=24.0.0",
+        "pnpm": ">=10.0.0",
+        "npm": "please-use-pnpm",
+        "yarn": "please-use-pnpm"
+    }
+}

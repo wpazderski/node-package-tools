@@ -1,0 +1,22 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "extends": "@wpazderski/typescript-config/baseNodeJs.tsconfig.json",
+    "compilerOptions": {
+        /* Visit https://aka.ms/tsconfig to read more about this file */
+
+        /* Projects */
+        "composite": false,
+        "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.root.tsbuildinfo",
+
+        /* JavaScript Support */
+        "allowJs": true,
+        "checkJs": true,
+
+        /* Emit */
+        "noEmit": true,
+
+        /* Interop Constraints */
+        "isolatedDeclarations": false
+    },
+    "include": [".prettierrc.js", "eslint.config.ts", "package.config.ts"]
+}
