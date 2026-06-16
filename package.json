@@ -49,9 +49,9 @@
     "devDependencies": {
         "@types/node": "^25.9.3",
         "@types/semver": "^7.7.1",
-        "@wpazderski/eslint-config": "^2.0.0",
-        "@wpazderski/prettier-config": "^2.0.0",
-        "@wpazderski/typescript-config": "^2.0.0",
+        "@wpazderski/eslint-config": "^2.0.1",
+        "@wpazderski/prettier-config": "^2.0.1",
+        "@wpazderski/typescript-config": "^2.0.1",
         "eslint": "^10.5.0",
         "husky": "^9.1.7",
         "npm-run-all": "^4.1.5",
