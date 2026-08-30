@@ -1,6 +1,6 @@
 {
     "name": "@wpazderski/node-package-tools",
-    "version": "2.0.1",
+    "version": "2.0.3",
     "description": "Common Node.js package tools",
     "keywords": [
         "node",
@@ -33,6 +33,7 @@
     "scripts": {
         "prepare": "husky",
         "build": "rimraf ./dist/ && rimraf -g ./node_modules/.tmp/*.tsbuildinfo && tsc -b",
+        "test": "node --test \"src/**/*.test.ts\"",
         "lint-check": "eslint ./ --flag unstable_native_nodejs_ts_config --max-warnings 0",
         "lint-fix": "eslint ./ --flag unstable_native_nodejs_ts_config --max-warnings 0 --fix",
         "prettier-check": "prettier ./ --check",
@@ -40,7 +41,7 @@
         "tsc-check": "tsc -b --noEmit",
         "check-licenses": "node ./src/checkLicenses/checkLicenses.ts",
         "check-outdated-packages": "node ./src/checkOutdatedPackages/checkOutdatedPackages.ts",
-        "check-all": "run-s lint-check prettier-check tsc-check check-licenses check-outdated-packages",
+        "check-all": "run-s lint-check prettier-check tsc-check test check-licenses check-outdated-packages",
         "pre-commit-checks": "run-s check-all"
     },
     "dependencies": {

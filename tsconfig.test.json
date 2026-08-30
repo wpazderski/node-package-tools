@@ -1,0 +1,15 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "extends": "@wpazderski/typescript-config/baseNodeJs.tsconfig.json",
+    "compilerOptions": {
+        /* The test files are TYPE-CHECKED and never EMITTED. `files: ["dist"]` publishes whatever `dist` holds, so an
+           emitted `*.test.js` reached all three consumers and made the published package import `node:test`.
+           They still need a project of their own: without one, ESLint cannot parse them at all. */
+        "noEmit": true,
+        "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.test.tsbuildinfo",
+        "rootDir": "./src/"
+    },
+    /* The whole source tree, because a test imports the module it covers, and a composite project must list every file
+       it reads. Nothing is emitted, so this costs no output. */
+    "include": ["src/**/*"]
+}

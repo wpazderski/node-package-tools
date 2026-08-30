@@ -13,5 +13,8 @@
         /* Emit */
         "outDir": "./dist/"
     },
-    "include": ["src/**/*"]
+    "include": ["src/**/*"],
+    // A test file is not part of the published package. `files: ["dist"]` publishes whatever `dist` holds, so an
+    // emitted `*.test.js` reached all three consumers and made the package import `node:test`.
+    "exclude": ["src/**/*.test.ts"]
 }
